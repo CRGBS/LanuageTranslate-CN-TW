@@ -1,0 +1,55 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+
+env:
+  PYTHON_VERSION: 3.9.7
+  PYINSTALLER_VERSION: 4.5.1
+  BUILD_ARTIFACTS_DIR: build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install PyInstaller ${{ env.PYINSTALLER_VERSION }}
+        run: pip install pyinstaller==${{ env.PYINSTALLER_VERSION }}
+
+      - name: Build exe
+        run: pyinstaller --onefile main.py
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v1.0
+          release_name: Release v1.0
+          body: |
+            This is the first release.
+          draft: false
+          prerelease: false
+
+      - name: Upload exe
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/main.exe
+          asset_name: main.exe
+          asset_content_type: application/x-msdownload
+
+      - name: Cleanup
+        run: rm -rf ./${{ env.BUILD_ARTIFACTS_DIR }}
