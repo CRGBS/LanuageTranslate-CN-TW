@@ -44,7 +44,10 @@ jobs:
  #         export VERSION=$(( ${env.latest_release} + 1 ))
  #         pyinstaller --name my_app_v${VERSION} --onefile main.py
 
-
+      - name: Build executable
+        run: |
+         export VERSION=$GITHUB_SHA
+         pyinstaller TranslateAllCNtoTW.py --onefile --name myapp-$VERSION --add-data templates:templates
 
       - name: Create Release
         id: create_release
