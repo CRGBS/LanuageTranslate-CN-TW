@@ -45,7 +45,7 @@ jobs:
             });
              console.log(`Latest release version is ${latestRelease.data.tag_name}`);
              core.setOutput('latest_release', latestRelease.data.tag_name);
-            token: ${{ secrets.BUILDSC }}
+            token: ${{ secrets.BUILDSC }} 
 
 
       - name: Create Release
