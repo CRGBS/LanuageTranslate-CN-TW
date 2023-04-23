@@ -35,16 +35,29 @@ jobs:
          pyinstaller --onefile UnityPluginCNtoTW.py
         
 
+      - name: Get latest release version
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const latestRelease = await github.repos.getLatestRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+             console.log(`Latest release version is ${latestRelease.data.tag_name}`);
+             core.setOutput('latest_release', latestRelease.data.tag_name);
+            token: ${{ secrets.BUILDSC }}
+
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.BUILDSC }}
         with:
-          tag_name: v1.0
-          release_name: Release v1.0
+          tag_name: ${{ env.latest_release + 1 }}
+          release_name: Release v1.${{ env.latest_release + 1 }}
           body: |
-            This is the first release.
+            This is release ${{ env.latest_release + 1 }}.
           draft: false
           prerelease: false
 
