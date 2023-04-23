@@ -34,28 +34,15 @@ jobs:
          pyinstaller --onefile TranslateAllCNtoTW.py
          pyinstaller --onefile UnityPluginCNtoTW.py
         
-      - name: Set version number
-        run: |
-         export VERSION=$(expr ${env.latest_release} + 1)
-         echo "New version number is ${VERSION}"
+  #    - name: Set version number
+  #      run: |
+  #       export VERSION=$(expr ${env.latest_release} + 1)
+  #       echo "New version number is ${VERSION}"
       
  #     - name: Build executable
  #       run: |
  #         export VERSION=$(( ${env.latest_release} + 1 ))
  #         pyinstaller --name my_app_v${VERSION} --onefile main.py
-
-
-      - name: Get latest release version
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const latestRelease = await github.repos.getLatestRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo
-            });
-             console.log(`Latest release version is ${latestRelease.data.tag_name}`);
-             core.setOutput('latest_release', latestRelease.data.tag_name);
-            token: ${{ secrets.BUILDSC }} 
 
 
 
@@ -65,8 +52,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.BUILDSC }}
         with:
-          tag_name: ${{ env.VERSION }}
-          release_name: Release v1.${{ env.VERSION }}
+          tag_name: ${{GITHUB_SHA}}
+          release_name: Release v1.${{GITHUB_SHA}}
           body: |
             This is release ${{ env.VERSION }}.
           draft: false
