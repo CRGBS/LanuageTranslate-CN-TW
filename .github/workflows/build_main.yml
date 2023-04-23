@@ -34,10 +34,15 @@ jobs:
          pyinstaller --onefile TranslateAllCNtoTW.py
          pyinstaller --onefile UnityPluginCNtoTW.py
         
-      - name: Build executable
+      - name: Set version number
         run: |
-          export VERSION=$(( ${env.latest_release} + 1 ))
-          pyinstaller --name my_app_v${VERSION} --onefile main.py
+         export VERSION=$(expr ${env.latest_release} + 1)
+         echo "New version number is ${VERSION}"
+      
+ #     - name: Build executable
+ #       run: |
+ #         export VERSION=$(( ${env.latest_release} + 1 ))
+ #         pyinstaller --name my_app_v${VERSION} --onefile main.py
 
 
       - name: Get latest release version
