@@ -27,7 +27,7 @@ jobs:
 
       - name: Build exe
         run: |
-         for file in /home/runner/work/LanuageTranslate-CN-TW/*.py; do
+         for file in /home/runner/work/LanuageTranslate-CN-TW/**.py; do
           pyinstaller --onefile "$file"
          done
        # run: pyinstaller --onefile main.py
