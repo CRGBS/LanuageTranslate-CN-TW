@@ -8,11 +8,8 @@ install:
 .PHONY: check
 check:
 	mypy -p plugin
-	black --check --diff --preview .
-	isort --check --diff .
+	zipfile --check --diff --preview .
 
 .PHONY: fix
 fix:
-	autoflake --in-place .
-	black --preview .
-	isort .
+	zipfile --in-place .
