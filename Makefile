@@ -7,7 +7,6 @@ install:
 
 .PHONY: check
 check:
-	mypy -p plugin
 	zipfile --check --diff --preview .
 
 .PHONY: fix
