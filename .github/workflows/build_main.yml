@@ -34,6 +34,11 @@ jobs:
          pyinstaller --onefile TranslateAllCNtoTW.py
          pyinstaller --onefile UnityPluginCNtoTW.py
         
+      - name: Build executable
+        run: |
+          export VERSION=$(( ${env.latest_release} + 1 ))
+          pyinstaller --name my_app_v${VERSION} --onefile main.py
+
 
       - name: Get latest release version
         uses: actions/github-script@v5
@@ -54,10 +59,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.BUILDSC }}
         with:
-          tag_name: ${{ env.latest_release + 1 }}
-          release_name: Release v1.${{ env.latest_release + 1 }}
+          tag_name: ${{ env.VERSION }}
+          release_name: Release v1.${{ env.VERSION }}
           body: |
-            This is release ${{ env.latest_release + 1 }}.
+            This is release ${{ env.VERSION }}.
           draft: false
           prerelease: false
 
