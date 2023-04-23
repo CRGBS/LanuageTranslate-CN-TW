@@ -5,8 +5,8 @@ on:
     branches: [main]
 
 env:
-  PYTHON_VERSION: 3.9.7
-  PYINSTALLER_VERSION: 4.5.1
+#  PYTHON_VERSION: 3.9.7
+  PYINSTALLER_VERSION: 5.10.1
   BUILD_ARTIFACTS_DIR: build
 
 jobs:
@@ -19,8 +19,8 @@ jobs:
 
       - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v2
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
+#        with:
+#          python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install PyInstaller ${{ env.PYINSTALLER_VERSION }}
         run: pip install pyinstaller==${{ env.PYINSTALLER_VERSION }}
