@@ -7,9 +7,7 @@ install:
 
 .PHONY: check
 check:
-	zipfile --check --diff --preview .
 
 .PHONY: fix
 fix:
-	zipfile --in-place .
 	
