@@ -19,6 +19,6 @@ jobs:
 
     - name: Run check
       run: make check
-
-    - name: Run distcheck
-      run: make distcheck
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
