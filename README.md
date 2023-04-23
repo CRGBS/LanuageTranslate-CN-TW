@@ -17,13 +17,13 @@
 
 ## 本倉庫分為兩個部分
 
-- 第一個是: TranslateAllCNtoTW.py
+- TranslateAllCNtoTW.py
 
-只需要指定路徑即可翻譯簡體中文至繁體中文
+只需要指定讀取目標資料夾即可翻譯簡體中文至繁體中文
 
-- 第二個是: UnityPluginCNtoTW.py
+- UnityPluginCNtoTW.py
 
-只需要指定路徑即可翻譯Unity翻譯插件翻譯過後的簡體中文
+只需要指定讀取目標資料夾即可將Unity翻譯插件翻譯過後的簡體中文
 
 ## 想要翻譯成其他語言嗎?
 
