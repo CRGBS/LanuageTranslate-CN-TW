@@ -1,6 +1,7 @@
 # LanuageTranslate-CN-TW （簡繁翻譯）
 
 本倉庫為利用[繁化姬API](https://zhconvert.org)製作而成小程式。
+只需要指定路徑即可翻譯Unity翻譯插件翻譯過後的簡體中文
 
 可以透過修改轉換器，達到期望的翻譯效果。
 預設值為Taiwan
