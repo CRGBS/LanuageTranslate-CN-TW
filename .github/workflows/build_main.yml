@@ -55,10 +55,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.BUILDSC }}
         with:
-          tag_name: ${{GITHUB_SHA}}
-          release_name: Release v1.${{GITHUB_SHA}}
+          tag_name: $myapp-$VERSION
+          release_name: Release v1.$myapp-$VERSION
           body: |
-            This is release ${{ env.VERSION }}.
+            This is release $myapp-$VERSION.
           draft: false
           prerelease: false
 
