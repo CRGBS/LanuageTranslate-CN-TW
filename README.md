@@ -13,13 +13,13 @@ process.log - 為處理過程
 translate.log - 為翻譯紀錄
 
 
-本倉庫分為兩個部分
+##本倉庫分為兩個部分
 
-第一個是: TranslateAllCNtoTW.py
+#第一個是: TranslateAllCNtoTW.py
 
 只需要指定路徑即可翻譯簡體中文至繁體中文
 
-第二個是: UnityPluginCNtoTW.py
+#第二個是: UnityPluginCNtoTW.py
 
 只需要指定路徑即可翻譯Unity翻譯插件翻譯過後的簡體中文
 
