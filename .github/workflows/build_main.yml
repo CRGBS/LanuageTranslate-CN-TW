@@ -26,7 +26,12 @@ jobs:
         run: pip install pyinstaller==${{ env.PYINSTALLER_VERSION }}
 
       - name: Build exe
-        run: pyinstaller --onefile main.py
+        run: |
+         for file in /home/runner/work/LanuageTranslate-CN-TW/*.py; do
+          pyinstaller --onefile "$file"
+         done
+       # run: pyinstaller --onefile main.py
+        
 
       - name: Create Release
         id: create_release
