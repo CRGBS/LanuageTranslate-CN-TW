@@ -6,3 +6,5 @@
 預設值為Taiwan
 
 有 Simplified （簡體化）、 Traditional （繁體化）、 China （中國化）、 Hongkong （香港化）、 Taiwan （台灣化）、 Pinyin （拼音化） Bopomofo （注音化）、 Mars （火星化）、 WikiSimplified （維基簡體化）、 WikiTraditional （維基繁體化）。
+
+如果喜歡這個專案可以按個星星，或是關注來支持我。
