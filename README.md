@@ -2,6 +2,16 @@
 繁化姬自動翻譯小程式
 
 本倉庫為使用繁化姬API製作而成的自動翻譯小程式。
+
+本軟體需使用 `requests` 以及 `functools` 函數庫
+
+在Python已安裝的環境下可以使用以下指令來安裝
+
+`pip install requests`
+
+`pip install functools`
+
+
 ## 功能
 
 本程式會自動讀取目標資料夾的檔案，並進行繁體中文翻譯。
